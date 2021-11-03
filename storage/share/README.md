@@ -1,0 +1,1 @@
+- only lowercase alphanumeric characters and hyphens allowed in "name"
