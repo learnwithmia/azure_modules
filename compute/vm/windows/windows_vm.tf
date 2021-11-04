@@ -1,12 +1,11 @@
-resource "azurerm_linux_virtual_machine" "linux_virtual_machine" {
-    for_each = var.linux_vm
+resource "azurerm_windows_virtual_machine" "windows_virtual_machine" {
+    for_each = var.windows_vm
     name                  = each.value.name
     resource_group_name   = each.value.resource_group_name
     location              = each.value.location
     tags                  = each.value.tags
-    admin_username        = "ubuntu"
+    admin_username        = "admin"
     admin_password        = each.value.admin_password
-    disable_password_authentication = false
     network_interface_ids = each.value.network_interface_ids
     os_disk {
         caching              = "ReadWrite"
@@ -14,9 +13,9 @@ resource "azurerm_linux_virtual_machine" "linux_virtual_machine" {
     }
     size                  = each.value.size
     source_image_reference {
-        publisher = "Canonical"
-        offer     = "UbuntuServer"
-        sku       = "19.04-LTS"
+        publisher = "MicrosoftWindowsServer"
+        offer     = "WindowsServer"
+        sku       = "2016-Datacenter"
         version   = "latest"
     }
 }
