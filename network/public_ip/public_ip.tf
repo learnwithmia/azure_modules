@@ -4,5 +4,6 @@ resource "azurerm_public_ip" "public_ip" {
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
   allocation_method   = "Static"
+  domain_name_label   = each.value.domain_name_label
   tags                = each.value.tags
 }
