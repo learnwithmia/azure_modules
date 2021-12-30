@@ -15,8 +15,8 @@ resource "azurerm_linux_virtual_machine" "linux_virtual_machine" {
     size                  = each.value.size
     source_image_reference {
         publisher = "Canonical"
-        offer     = "UbuntuServer"
-        sku       = "19.04-LTS"
+        offer     = "0001-com-ubuntu-server-focal"
+        sku       = "20_04-lts"
         version   = "latest"
     }
 }
